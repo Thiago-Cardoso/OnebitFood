@@ -7,4 +7,6 @@ class Order < ApplicationRecord
   validates :total_value, presence: true
 
   enum status: { waiting: 0, delivered: 1 }
+
+  accepts_nested_attributes_for :order_products, allow_destroy: true
 end
