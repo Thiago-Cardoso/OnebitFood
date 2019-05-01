@@ -6,15 +6,10 @@ class RestaurantSerializer < ActiveModel::Serializer
     :reference, :cep, :image_url, :category_title
  
   has_many :product_categories, if: -> { @instance_options[:product_categories]}
-
-  
-  def address
-    [street, number, city, state].compact.join(', ')
-  end
  
   def image_url
     rails_blob_url(object.image)
-  end
+  end 
  
   def review
     object.reviews&.average(:value)
