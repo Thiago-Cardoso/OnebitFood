@@ -7,9 +7,6 @@ class RestaurantSerializer < ActiveModel::Serializer
  
   has_many :product_categories, if: -> { @instance_options[:product_categories]}
 
-  geocoded_by :address
- 
-  after_validation :geocode
   
   def address
     [street, number, city, state].compact.join(', ')
