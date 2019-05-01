@@ -14,4 +14,5 @@ class Restaurant < ApplicationRecord
 
   	
   enum status: { closed: 0, open: 1 }
+  has_one_attached :image
 end
